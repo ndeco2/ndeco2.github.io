@@ -6,7 +6,7 @@ h1.header {
 }
 
 p {
-    text-align: center;
+    text-align: left;
 }
 
 img {
@@ -64,4 +64,13 @@ body {
 
 .headerButton:hover {
     color: rgb(99, 99, 99); /* Changes color on hover */
+}
+
+.moreLink {
+    text-decoration: none;
+    transition: color 0.35s;
+}
+
+.moreLink:hover {
+    color: rgb(179, 179, 179); /* Changes color on hover */
 }
