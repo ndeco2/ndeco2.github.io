@@ -1,21 +1,63 @@
 <!DOCTYPE html>
-<html>
-<link rel="stylesheet" href="styles.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet CSS for map styling -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
 <body>
-<div class = "header">
-    <div class = "headerBox">
-    <h1 class="headerTitle">
-        About Me
-    </h1>
-    <a href="index.html" class="headerButton">Home</a>
+    <div class="header">
+        <div class="headerBox">
+            <h1 class="headerTitle">About Me</h1>
+            <a href="explain.html" class="headerButton"><</a>
+            <a href="index.html" class="headerButton">Home</a>
+            <a href="skills.html" class="headerButton">></a>
+        </div>
     </div>
-</div>
 
+    <div class="infoContainer">
+        <p>As stated earlier, my name is Nicholas DeCook. I was born on December 5th, 2002 and have lived in the Chicagoland area my entire life.
+            My main childhood hometown was Bensenville, which isn't too far from O'Hare airport. 
+            If you want enter where you are or where you grew up and you can see how far the location is!
+        </p>
 
-<div class="infoContainer">
-    <p>I grew up in Bensenville, Illinois and was born December 5th 2002. Let's see how far you are from
-        where I grew up! Input your starting location.
+        <h2>Find Your Distance from My Location</h2>
+        <div id="map"></div>
+
+        <div class="distanceContainer">
+            <input type="text" id="userLocation" placeholder="Enter your latitude,longitude">
+            <button onclick="calculateDistance()">Get Distance</button>
+            <p id="distanceOutput" class="distanceOutput"></p>
+        </div>
+    
+
+    <!-- Leaflet.js script -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+        <p>
+            Being around planes, trains, and cars growing up gave me a love for machines.
+            This also in turn gave me ambition to figure out how my life and interactions worked. For example, taking a toaster apart to the springs and electrical components to visually understand how the object worked. I also build computers simply because I enjoyed it. It felt like a puzzle to me and was rewarding when I was able to complete the challenge.
+            In school, my strong subjects were always Math/Science, which is why I enjoyed them so much more than other subjects.
+            I’ve always been intrigued by numbers and the stories they tell. Behind every data point lies a narrative—patterns waiting to be uncovered, insights waiting to be shared, and decisions waiting to be guided. Whether it’s analyzing trends, solving complex problems, or simply understanding the ‘why’ behind the ‘what,’ numbers offer a unique view to see the world more clearly. This passion drives me to dig deeper, ask better questions, and search for answers.
+            During the first year of college, I got the opportunity to dorm with 3 other roommates. The next year, 
+            however, I moved in with my grandmother because living in a dorm was astronomically expensive and my 
+            grandmother needed help and company, so I decided to join her. Unfortunately, due to financial reasons 
+            she ended up losing her house and moved in with my uncle. Luckily for me though, after I completed my 
+            sophomore year of college, I was able to meet someone wonderful to move out and live with. While living 
+            on my own, I got to learn valuable lessons of independence and got a sense of independence I wouldn’t 
+            have gotten if I didn’t. The first apartment I moved to was 4764 N. Virginia Ave, which is on the edge of
+            Albany Park. This apartment was the epitome of a “Chicago experience” for me. Terrible street parking, a
+            small studio apartment and the occasional “fireworks” at night. In all seriousness, it was a great place
+            to live. Even though there was terrible parking, it was free. Or if the apartment was small, it was still cheap compared to other places, especially other cities. 
         
-    </p>
+        </p>
+    </div>
+
 </body>
-</html> 
+</html>

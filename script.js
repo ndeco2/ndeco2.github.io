@@ -1,19 +1,39 @@
-let lastScrollPosition = 0;
-const header = document.querySelector('#main-header'); // Select by ID
+// Predefined location (near O'Hare Airport)
+const predefinedLocation = [41.9773, -87.8369];
 
-window.addEventListener('scroll', () => {
-    const currentScrollPosition = window.scrollY;
+// Initialize the map with Leaflet
+const map = L.map('map').setView(predefinedLocation, 13);
 
-    if (currentScrollPosition > lastScrollPosition) {
-        // User is scrolling down
-        header.classList.add('hidden'); // Add the 'hidden' class to hide the header
-        header.classList.remove('visible');
-    } else {
-        // User is scrolling up
-        header.classList.remove('hidden');
-        header.classList.add('visible'); // Add the 'visible' class to show the header
+// Load OpenStreetMap tiles
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+// Add a marker
+L.marker(predefinedLocation).addTo(map)
+    .bindPopup('My Location')
+    .openPopup();
+
+function calculateDistance() {
+    const userLocation = document.getElementById('userLocation').value;
+
+    // Ensure the user has entered coordinates
+    if (!userLocation) {
+        document.getElementById('distanceOutput').innerText = "Please enter your latitude and longitude.";
+        return;
     }
 
-    // Update the last scroll position
-    lastScrollPosition = currentScrollPosition;
-});
+    // Parse input (latitude, longitude)
+    const [userLat, userLng] = userLocation.split(',').map(coord => parseFloat(coord));
+
+    if (isNaN(userLat) || isNaN(userLng)) {
+        document.getElementById('distanceOutput').innerText = "Invalid coordinates.";
+        return;
+    }
+
+    // Calculate distance via Leaflet's distance method
+    const distanceInMeters = map.distance(predefinedLocation, [userLat, userLng]);
+    const distanceInKm = distanceInMeters / 1000; // Convert to kilometers
+    const distanceInMiles = distanceInKm * 0.621371; // Convert kilometers to miles
+
+    // Display distance
+    document.getElementById('distanceOutput').innerText = `Distance: ${distanceInMiles.toFixed(2)} miles`;
+}

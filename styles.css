@@ -54,6 +54,8 @@ body {
 
 .headerButton {
     margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     text-decoration: none;
     color: rgb(170, 170, 170);
     font-size: 1rem;
@@ -71,4 +73,46 @@ body {
 
 .moreLink:hover {
     color: rgb(179, 179, 179); /* Changes color on hover */
+}
+
+
+#map {
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Optional styling for the distance output */
+.distanceContainer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.distanceOutput {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.jobs {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-decoration: bold;
+    color: rgb(68, 68, 68);
+    font-size: 24px;
+}
+
+.jobContainer {
+    max-width: 750px;
+    margin: 0 auto;
+    border-bottom: 2px solid rgb(139, 139, 139);
+}
+
+.skillsLearn {
+    margin-bottom: 0;
+    font-style: italic;
+
+}
+
+.jobInfo {
+    margin-top: 5px;
 }
